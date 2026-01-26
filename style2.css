@@ -152,7 +152,18 @@ main{
   gap: 20px;
 }
 
-
+.image {
+    flex: 1; 
+    padding: 5px;
+    max-width: 300px;            /* taille fixe */
+    min-height: 10px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-direction: column;
+}
 
 .adire {
     flex: 1;
