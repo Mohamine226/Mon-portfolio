@@ -101,14 +101,19 @@ nav ul li a:hover {
 
     .main-container {
     flex-direction: column;   /* empile les éléments */
+    align-items: center;      /* centre horizontalement */
+
   }
 
   .image {
     order: 1;   /* image en dessous */
-    max-width: 500px; 
+    max-width: 100%;          /* l’image prend toute la largeur dispo */
+    justify-content: center;  /* centre l’image dans son div */
+
   }
 
   .adire {
+    max-width: 100%;          /* texte prend toute la largeur */
     order: 2;   /* texte en premier */
   }
 
@@ -142,7 +147,7 @@ main{
     max-width: 2000px;        /* largeur maximale */
     min-height: 600px; 
     
-    display: 5;     /* permet aux enfants de s’étirer */
+    display: flex;     /* permet aux enfants de s’étirer */
 }
 
 .main-container {
