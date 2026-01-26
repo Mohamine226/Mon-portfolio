@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algo5</title>
+    <link rel="stylesheet" href="style5.css?v=1.0" />
+    <script src="java5.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a >Contact</a>
+            </div>
+
+            <!-- Menu hamburger -->
+            <div class="hamburger-menu" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html">Acceuil</a></li>
+                    <li><a href="index2.html">À propos</a></li>
+                    <li><a href="index3.html">Compétences</a></li>
+                    <li><a href="index5.html">Projets</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="remplir">
+            <p>Veuillez remplir le formulaire ci-dessous pour me contacter.</p>
+
+            <br>
+
+            <h4>FORMULAIRE</h4>
+            <br>
+
+        </section>
+
+        
+
+        <section class="tableau">
+            <!-- Formulaire correctement ouvert -->
+            <form id="submit" action="/action" method="post">
+                <label for="surname">Prénom</label>
+                <input type="text" name="prenom" id="surname" placeholder="EX: Marcel" />
+
+                <br />
+
+                <label for="name">Nom</label>
+                <input type="text" name="nom" id="name" placeholder="EX: BALMA" />
+
+                <br />
+
+                <label for="year">Âge</label>
+                <input type="number" name="age" id="year" placeholder="EX: 20" max="99" min="7" />
+
+                <br />
+
+                <label for="gender">Genre</label>
+                <select name="genre" id="gender">
+                    <option selected value="Masculin">Masculin</option>
+                    <option value="Féminin">Féminin</option>
+                </select>
+
+                <br />
+
+                <label for="phone">Numéro</label>
+                <input type="tel" name="phone" id="phone" placeholder="EX : 07000000" />
+
+                <br>
+
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="marcel@example.com" />
+
+                <div>
+                    <h4>Profession</h4>
+
+                    <input type="radio" name="type" id="Etudiant" value="Etudiant" />
+                    <label for="Etudiant">Étudiant</label>
+
+                    <input type="radio" name="type" id="Employe" value="Employé" />
+                    <label for="Employe">Employé</label>
+                </div>
+
+                <br />
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" cols="40" rows="6" placeholder="Votre message"></textarea>
+
+                <br />
+
+                <div class="checkbox-group">
+                    <input type="checkbox" name="cgv" id="cgv" />
+                    <label for="cgv">Accepter les conditions générales</label>
+                </div>
+
+                <br /><br />
+
+                <input id="sendBtn" class="button" type="submit" value="Envoyer" />
+                <input id="cancelBtn" class="Annuler" type="reset" value="Annuler" />
+            </form>
+            <div id="result"></div>
+        </section>
+    </main>
+
+    <footer>
+        <section>
+            <h5>Liens utiles</h5>
+        <ul class="lien">
+            <a href="https://github.com/Mohamine26">GitHub </a>
+            <br>
+            <a href="https://www.facebook.com/gnambre.mohamine">facebook</a>
+        </ul>
+        </section>
+
+        <section>
+            <h5>Contactez-nous</h5>
+            <ul class="lien">
+                <li>(+226) 71176061 / 64145279</li>
+            </ul>
+            <p class="lien">Toujours disponible</p>
+        </section>
+
+        <section>
+            <h5>Email</h5>
+            <ul>
+                <li class="lien">gnambremohamine26@gmail.com</li>
+            </ul>
+        </section>
+
+        <section>
+            <h6>Copyright</h6>
+            <p class="lien">© 2025 GNAMBRE. Tous droits réservés</p>
+        </section>
+    </footer>
+</body>
+</html>

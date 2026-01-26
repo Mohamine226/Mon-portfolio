@@ -1,0 +1,253 @@
+/* RESET — Nettoyage des marges et comportement des éléments */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111111db;
+    /* color: #222; */
+    line-height: 1.6;
+}
+
+/* Zone contenant le logo + hamburger */
+header {
+    background-color: #111;    /* Noir/gris foncé */
+    color: white;
+    padding: 15px 20px;
+}
+
+/* Container horizontal : logo à gauche, hamburger à droite */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo a {
+    color: white;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Menu mobile avec 3 traits */
+.hamburger-menu {
+    width: 30px;
+    height: 15px;
+    display: none;  /* Caché sur PC, visible seulement mobile */
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    
+}
+
+/* Chaque trait */
+.hamburger-menu span {
+    height: 2px;
+    background-color: white;
+    border-radius: 4px;
+    
+}
+
+/* Barre de navigation sous le header */
+nav {
+    background-color: #111; /* Gris différent pour bien séparer */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff6600; /* Orange moderne */
+}
+/*  RESPONSIVE — VERSION MOBILE Le nav disparaît et le hamburger apparaît */
+@media (max-width: 768px) {
+
+    /* On affiche le hamburger */
+    .hamburger-menu {
+        display: flex;
+    }
+
+    /* Le menu nav disparaît */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #111;
+        padding: 15px;
+        gap: 15px;
+        text-align: center;
+    }
+
+    /* Quand on clique sur le hamburger → class "show" */
+    nav ul.show {
+        display: flex;
+    }
+
+    /* Footer vertical sur mobile */
+    footer {
+        flex-direction: column;   /* aligne les sections verticalement */
+        
+        gap: 20px;                /* espace entre les blocs */
+    }
+
+    footer .lien {
+        margin: 10px;
+    }
+
+    footer section {
+        width: 100%;              /* chaque bloc prend toute la largeur */
+        max-width: 300px;         /* limite la largeur pour rester lisible */
+    }
+
+    /* Version mobile */
+    .project {
+        flex-direction: column;   /* image au-dessus du texte */
+        text-align: center;
+    }
+
+    .project img {
+        width: 100%;              /* image prend toute la largeur */
+        max-width: 320px;         /* limite pour rester lisible */
+    }
+
+    main {
+        max-width: 100%;          /* occupe toute la largeur sur mobile */
+        margin: 10px;
+        padding: 15px;
+    }
+
+    
+
+
+}
+
+main {
+    border-radius: 10px;
+    background-color: #fff;
+    max-width: 900px;      /* largeur plus confortable sur PC */
+    margin: 20px auto;     /* centré */
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Conteneur projet */
+.project {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Image projet */
+.project img {
+    width: 280px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Texte projet */
+.project .description {
+    flex: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   --------------------------- FOOTER ------------------------
+   Zone tout en bas du site
+========================================================= */
+footer {
+    background-color: #111;
+    color: #ccc;
+    padding: 25px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+footer h5, footer h6 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer a {
+    color: #ccc;
+    transition: 0.3s;
+}
+
+footer a:hover {
+    color: #ff6600;
+}
