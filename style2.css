@@ -154,10 +154,9 @@ main{
 .image {
     flex: 1; 
     margin: 10px auto;     /* centré */
-    padding: 20px;
+    padding: 10px;
     max-width: 500px;            /* taille fixe */
     min-height: 200px;
-    gap: 20px;
     
 }
 
