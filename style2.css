@@ -140,7 +140,7 @@ main{
     border-radius: 10px;
     
     max-width: 2000px;        /* largeur maximale */
-    min-height: 500px; 
+    min-height: 600px; 
     
     display: 5;     /* permet aux enfants de s’étirer */
 }
@@ -170,7 +170,8 @@ main{
     display: flex;
     flex-direction: column;
     background-color: white;
-    max-width: 700px;   /* largeur compacte */
+    max-width: 800px; 
+    min-height: 200;  /* largeur compacte */
     margin: 0 auto;     /* centré */
     padding: 20px;
     background-color: #fff;
