@@ -176,7 +176,7 @@ main{
     flex-direction: column;
     background-color: white;
     max-width: 800px; 
-    min-height: 200;  /* largeur compacte */
+    min-height: 500;  /* largeur compacte */
     margin: 0 auto;     /* centré */
     padding: 20px;
     background-color: #fff;
