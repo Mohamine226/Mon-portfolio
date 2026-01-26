@@ -153,11 +153,14 @@ main{
 
 .image {
     flex: 1; 
-    margin: 10px auto;     /* centré */
-    padding: 10px;
-    max-width: 500px;            /* taille fixe */
-    min-height: 200px;
-    
+    padding: 5px;
+    max-width: 300px;            /* taille fixe */
+    min-height: 10px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
 .adire {
