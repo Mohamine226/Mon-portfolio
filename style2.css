@@ -153,7 +153,7 @@ main{
 
 .image {
     flex: 1; 
-    margin: 50px auto;     /* centré */
+    margin: 10px auto;     /* centré */
     padding: 20px;
     max-width: 500px;            /* taille fixe */
     min-height: 200px;
