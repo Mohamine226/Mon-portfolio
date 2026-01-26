@@ -147,7 +147,7 @@ main{
     max-width: 2000px;        /* largeur maximale */
     min-height: 600px; 
     
-    display: flex;     /* permet aux enfants de s’étirer */
+    display: 5;     /* permet aux enfants de s’étirer */
 }
 
 .main-container {
@@ -163,7 +163,7 @@ main{
     padding: 20px;
     max-width: 300px;            /* taille fixe */
     min-height: 10px;
-    margin: 20px;
+    margin: 5px;
     display: flex;
     align-items: center;
     gap: 20px;
