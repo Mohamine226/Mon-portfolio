@@ -78,6 +78,33 @@ nav ul li a:hover {
     color: #ff6600;
 }
 
+/* Bloc réseaux sociaux centré dans le header */
+.partie-reseau {
+    display: flex;
+    justify-content: center;   /* centre horizontalement */
+    margin-top: 10px;
+}
+
+#reseau-social {
+    list-style: none;
+    display: flex;
+    gap: 15px;                 /* espace entre les icônes */
+    padding: 0;
+}
+
+#reseau-social li a img {
+    width: 40px;               /* taille des icônes */
+    height: 40px;
+    border-radius: 50%;        /* rend circulaire */
+    object-fit: cover;         /* ajuste l’image */
+    /* border: 2px solid #007bff; /* bordure décorative */
+    transition: transform 0.3s ease;
+}
+
+#reseau-social li a img:hover {
+    transform: scale(1.1);     /* effet zoom au survol */
+}
+
 /* MAIN */
 main {
     padding: 30px;
@@ -232,6 +259,17 @@ footer a:hover {
         width: 100%;              /* chaque bloc prend toute la largeur */
         max-width: 300px;         /* limite la largeur pour rester lisible */
     }
+
+    .partie-reseau {
+    justify-content: center;   /* reste centré sur mobile */
+    margin-top: 15px;
+    }
+
+    #reseau-social li a img {
+        width: 35px;               /* icônes plus petites sur mobile */
+        height: 35px;
+    }
+
 }
 
 /*  BOUTON */
