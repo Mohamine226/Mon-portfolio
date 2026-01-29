@@ -97,7 +97,7 @@ nav ul li a:hover {
     height: 40px;
     border-radius: 50%;        /* rend circulaire */
     object-fit: cover;         /* ajuste l’image */
-    /* border: 2px solid #007bff; /* bordure décorative */
+    /*border: 1px solid #111; /* bordure décorative */
     transition: transform 0.3s ease;
 }
 
