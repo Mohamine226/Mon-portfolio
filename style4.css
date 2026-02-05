@@ -173,6 +173,17 @@ main section p {
     line-height: 1.5;
 }
 
+
+
+
+
+
+
+
+
+
+
+
 /*  RESPONSIVE — VERSION MOBILE Le nav disparaît et le hamburger apparaît */
 @media (max-width: 768px) {
 
@@ -316,10 +327,7 @@ main section p {
 
 
 
-/* =========================================================
-   --------------------------- FOOTER ------------------------
-   Zone tout en bas du site
-========================================================= */
+/*  FOOTER */
 footer {
     background-color: #111;
     color: #ccc;

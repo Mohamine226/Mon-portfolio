@@ -216,7 +216,7 @@ input[type="submit"], input[type="reset"] {
     transition: background-color 0.3s;
 }
 
-/* ====== BOUTONS EXTERNES ====== */
+/*  BOUTONS EXTERNES  */
 /* Conteneur des boutons */
 section div {
     display: flex;
@@ -266,6 +266,22 @@ section div {
     background-color: #0056b3;
     transform: scale(1.05);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -367,10 +383,7 @@ section div {
 
 
 
-/* =========================================================
-   --------------------------- FOOTER ------------------------
-   Zone tout en bas du site
-========================================================= */
+/*  FOOTER  */
 footer {
     background-color: #111;
     color: #ccc;

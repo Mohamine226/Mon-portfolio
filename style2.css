@@ -138,6 +138,20 @@ nav ul li a {
 nav ul li a:hover {
     color: #ff6600; /* Orange moderne */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* RESPONSIVE — VERSION MOBILE Le nav disparaît et le hamburger apparaît*/
 @media (max-width: 768px) {
 
@@ -242,10 +256,7 @@ nav ul li a:hover {
 
 
 
-/* =========================================================
-   --------------------------- FOOTER ------------------------
-   Zone tout en bas du site
-========================================================= */
+/*  FOOTER */
 footer {
     background-color: #111;
     color: #ccc;
