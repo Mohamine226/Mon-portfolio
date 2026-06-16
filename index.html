@@ -1,96 +1,1244 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamine GNAMBRE</title>
-    <link rel="stylesheet" href="style1.css">
-    <script src="java1.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohamine GNAMBRE — Développeur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== TOKENS ===== */
+    :root {
+      --bg: #0A0A0F;
+      --bg2: #12121A;
+      --bg3: #1A1A26;
+      --accent: #6C63FF;
+      --accent2: #FF6B6B;
+      --text: #E8E8F0;
+      --text-muted: #8888A8;
+      --border: rgba(108,99,255,0.15);
+      --radius: 12px;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      letter-spacing: 0.02em;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    #accueil {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 5% 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 50%, rgba(108,99,255,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(255,107,107,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(108,99,255,0.12);
+      border: 1px solid rgba(108,99,255,0.3);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 20px;
+      letter-spacing: 0.04em;
+    }
+    .hero-tag::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .hero-name .accent { color: var(--accent); }
+    .hero-name .line2 { color: var(--text-muted); }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      max-width: 420px;
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 420px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.25s;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      background: #7B74FF;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(108,99,255,0.35);
+    }
+
+    .btn-ghost {
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 12px 28px;
+      border-radius: var(--radius);
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.25s;
+      display: inline-block;
+    }
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-socials {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .hero-socials a {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.25s;
+    }
+    .hero-socials a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(108,99,255,0.08);
+    }
+
+    /* Avatar card */
+    .hero-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 120px; height: 120px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0.06;
+    }
+
+    .avatar-ring {
+      width: 140px; height: 140px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      padding: 3px;
+    }
+    .avatar-inner {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      background: var(--bg3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .card-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .card-role {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .card-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .stat {
+      background: var(--bg3);
+      border-radius: 10px;
+      padding: 12px;
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== SECTION COMMONS ===== */
+    section {
+      padding: 80px 5%;
+    }
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 40px;
+    }
+    .section-title .dim { color: var(--text-muted); }
+
+    /* ===== ABOUT ===== */
+    #apropos { background: var(--bg2); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .about-text strong { color: var(--text); font-weight: 500; }
+
+    .about-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .timeline-item {
+      display: flex;
+      gap: 16px;
+      padding-bottom: 28px;
+      position: relative;
+    }
+    .timeline-item:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 30px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+    .timeline-dot {
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      background: rgba(108,99,255,0.15);
+      border: 1px solid var(--accent);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .timeline-content h4 {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .timeline-content p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ===== SKILLS ===== */
+    #competences { background: var(--bg); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: all 0.3s;
+    }
+    .skill-card:hover {
+      border-color: rgba(108,99,255,0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    }
+
+    .skill-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .skill-icon {
+      width: 38px; height: 38px;
+      border-radius: 9px;
+      background: rgba(108,99,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .skill-name {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .skill-level {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .skill-bar-bg {
+      height: 4px;
+      background: var(--bg3);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--accent), #9B94FF);
+      width: 0%;
+      transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .skill-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ===== PROJECTS ===== */
+    #projets { background: var(--bg2); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .project-card:hover {
+      border-color: rgba(108,99,255,0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+
+    .project-thumb {
+      height: 160px;
+      background: linear-gradient(135deg, var(--bg3), var(--bg2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .project-thumb::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40px;
+      background: linear-gradient(transparent, var(--bg));
+    }
+
+    .project-body {
+      padding: 20px;
+    }
+    .project-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .project-tag {
+      font-size: 0.7rem;
+      background: rgba(108,99,255,0.12);
+      color: var(--accent);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    .project-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .project-desc {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .project-links {
+      display: flex;
+      gap: 10px;
+    }
+    .project-link {
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: opacity 0.2s;
+    }
+    .project-link:hover { opacity: 0.7; }
+
+    /* ===== CONTACT ===== */
+    #contact { background: var(--bg); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .contact-info p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+    .contact-item-icon {
+      width: 36px; height: 36px;
+      background: rgba(108,99,255,0.1);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .contact-item a { color: var(--text-muted); text-decoration: none; }
+    .contact-item a:hover { color: var(--accent); }
+
+    .contact-ext {
+      display: flex;
+      gap: 10px;
+    }
+    .btn-wa {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #25D366;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .btn-wa:hover { background: #1FB85A; transform: translateY(-2px); }
+
+    /* Form */
+    .contact-form {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+    .form-group input,
+    .form-group textarea {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 10px 14px;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(108,99,255,0.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .form-check {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      cursor: pointer;
+    }
+    .form-check input[type="checkbox"] {
+      accent-color: var(--accent);
+      width: 16px; height: 16px;
+    }
+
+    #form-result {
+      font-size: 0.85rem;
+      margin-top: 10px;
+      min-height: 20px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 28px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ===== DIVIDER ===== */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ===== MOBILE NAV ===== */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 64px; left: 0; right: 0;
+      background: rgba(10,10,15,0.97);
+      border-bottom: 1px solid var(--border);
+      z-index: 99;
+      padding: 20px 5%;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .mobile-nav a:hover { color: var(--accent); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-card { order: -1; max-width: 320px; margin: 0 auto; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+
+      section { padding: 60px 5%; }
+      footer { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-    <div class="header-container">
-        <div class="logo">
-            <a>Acceuil</a>
-        </div>
+  <!-- NAV -->
+  <nav>
+    <a href="#accueil" class="nav-logo">MG<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-        <!-- Menu hamburger -->
-        <div class="hamburger-menu" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#accueil" onclick="closeMobile()">Accueil</a>
+    <a href="#apropos" onclick="closeMobile()">À propos</a>
+    <a href="#competences" onclick="closeMobile()">Compétences</a>
+    <a href="#projets" onclick="closeMobile()">Projets</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+  </div>
 
-        <nav>
-            <ul id="nav-menu">
-                <li><a href="index2.html">À propos</a></li>
-                <li><a href="index3.html">Compétences</a></li>
-                <li><a href="index4.html">Projets</a></li>
-                <li><a href="index5.html">Contact</a></li>
-            </ul>
-        </nav>
+  <!-- HERO -->
+  <section id="accueil">
+    <div class="hero-bg"></div>
+    <div class="hero-grid">
+      <div>
+        <div class="hero-tag">Disponible pour des projets</div>
+        <h1 class="hero-name">
+          <span class="accent">GNAMBRE</span><br>
+          <span>Mohamine</span><br>
+          <span class="line2">Développeur</span>
+        </h1>
+        <p class="hero-sub">Étudiant en Informatique Appliquée · IFOAD / Université Joseph Ki-Zerbo</p>
+        <p class="hero-desc">
+          Je conçois des sites web et applications mobiles modernes, en transformant des idées en solutions
+          rapides, accessibles et utiles pour les utilisateurs.
+        </p>
+        <div class="hero-actions">
+          <a href="#projets" class="btn-primary">Voir mes projets</a>
+          <a href="#contact" class="btn-ghost">Me contacter</a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/Mohamine226" target="_blank" title="GitHub">GH</a>
+          <a href="https://www.facebook.com/gnambre.mohamine" target="_blank" title="Facebook">FB</a>
+          <a href="https://x.com/Mohamine994" target="_blank" title="X">𝕏</a>
+          <a href="https://wa.me/22664145279" target="_blank" title="WhatsApp">WA</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="avatar-ring">
+          <div class="avatar-inner">MG</div>
+        </div>
+        <div class="card-name">Mohamine GNAMBRE</div>
+        <div class="card-role">Développeur Web & Mobile Junior</div>
+        <div class="card-stats">
+          <div class="stat">
+            <div class="stat-num">2+</div>
+            <div class="stat-label">Projets réalisés</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">8</div>
+            <div class="stat-label">Technologies</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">L1</div>
+            <div class="stat-label">Informatique appliquée</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">BF</div>
+            <div class="stat-label">Ouagadougou</div>
+          </div>
+        </div>
+      </div>
     </div>
-    </header>
+  </section>
 
-    <!-- Bloc réseaux sociaux juste sous le header -->
-    <div class="partie-reseau">
-        <ul id="reseau-social">
-            <li><a href="https://www.facebook.com/gnambre.mohamine"><img src="image/facebook.png" alt="Facebook"></a></li>
-            <li><a href="https://x.com/Mohamine994"><img src="image/x.webp" alt="X"></a></li>
-            <li><a href="https://github.com/Mohamine226"><img src="image/github.png" alt="GitHub"></a></li>
-        </ul>
-    </div>
-
-    <main>
-        <div class="main-container">
-            <section class="presentation">
-                <h1>Je suis <span class="nom">GNAMBRE Mohamine</span></h1>
-                <p>Étudiant en informatique à l’Université Joseph Ki-Zerbo (Institut IFOAD).</p>
-                <p>En tant que développeur junior, je conçois des sites et des applications modernes et responsives.</p>
-                <p>Je transforme des idées en expériences web et applications claires, rapides et accessibles.</p>
-                <p>Mon objectif est de contribuer à des projets innovants et de créer des solutions utiles pour les utilisateurs.</p>
-                <p>N’hésitez pas à me contacter pour collaborer ou échanger sur vos projets.</p>
-                <br>
-                <button class="boutton">À propos</button>
-            </section>
-
-            <section class="image-section">
-                <img src="./image/software-developer-6521720_640.jpg" height="200px" width="300">
-            </section>
+  <!-- À PROPOS -->
+  <section id="apropos">
+    <div class="section-inner">
+      <p class="section-eyebrow">Mon histoire</p>
+      <h2 class="section-title">À propos <span class="dim">de moi</span></h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            Je m'appelle <strong>Mohamine GNAMBRE</strong>, étudiant en 
+            <strong>Informatique Appliquée</strong> à l'Institut de Formation Ouverte et à Distance 
+            (IFOAD) de l'Université Joseph Ki-Zerbo, Ouagadougou.
+          </p>
+          <p>
+            J'ai choisi le développement web et mobile par passion pour la résolution de problèmes 
+            et la création d'interfaces modernes et intuitives. Mon ambition est de contribuer 
+            à des projets innovants qui ont un impact concret pour les utilisateurs africains.
+          </p>
+          <p>
+            En dehors de ma formation académique, je m'autoformes en continu, je travaille sur des 
+            projets personnels et je m'intéresse à l'entrepreneuriat tech pour développer des 
+            <strong>solutions adaptées aux marchés africains</strong>.
+          </p>
+          <p>
+            Mon objectif : devenir un développeur reconnu, capable de concevoir et déployer 
+            des solutions innovantes à l'échelle internationale.
+          </p>
         </div>
-    </main>
+        <div class="about-timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot">🎓</div>
+            <div class="timeline-content">
+              <h4>IFOAD — Licence Informatique Appliquée</h4>
+              <p>Université Joseph Ki-Zerbo · En cours</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">🚀</div>
+            <div class="timeline-content">
+              <h4>Camp INCUBUO — 5ᵉ édition</h4>
+              <p>Formation en entrepreneuriat, pitch de projet, réseautage avec des entrepreneurs expérimentés.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">💻</div>
+            <div class="timeline-content">
+              <h4>Développement de projets</h4>
+              <p>Portfolio, MotoStock, LearnTogether, OuagaSôré — des solutions pour des problèmes réels.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">📚</div>
+            <div class="timeline-content">
+              <h4>Auto-formation continue</h4>
+              <p>Flutter, FastAPI, Docker, Python — apprentissage par la pratique.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <section>
-            <h5>Liens utiles</h5>
-        <ul class="lien">
-            <a href="https://github.com/Mohamine26">GitHub </a>
-            <br>
-            <a href="https://www.facebook.com/gnambre.mohamine">facebook</a>
-        </ul>
-        </section>
+  <!-- COMPÉTENCES -->
+  <section id="competences">
+    <div class="section-inner">
+      <p class="section-eyebrow">Ce que je maîtrise</p>
+      <h2 class="section-title">Compétences <span class="dim">techniques</span></h2>
+      <div class="skills-grid">
+        <div class="skill-card" data-level="85">
+          <div class="skill-header">
+            <div class="skill-icon">🌐</div>
+            <div>
+              <div class="skill-name">HTML / CSS</div>
+              <div class="skill-level">Intermédiaire avancé</div>
+            </div>
+          </div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
+          <div class="skill-desc">Création d'interfaces web responsives, modernes et accessibles.</div>
+        </div>
 
-        <section>
-            <h5>Contactez-nous</h5>
-            <ul class="lien">
-                <li>(+226) 71176061 / 64145279</li>
-            </ul>
-            <p class="lien">Toujours disponible</p>
-        </section>
+        <div class="skill-card" data-level="75">
+          <div class="skill-header">
+            <div class="skill-icon">⚡</div>
+            <div>
+              <div class="skill-name">JavaScript</div>
+              <div class="skill-level">Intermédiaire</div>
+            </div>
+          </div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
+          <div class="skill-desc">Interactions, logique frontend, manipulation du DOM.</div>
+        </div>
 
-        <section>
-            <h5>Email</h5>
-            <ul>
-                <li class="lien">gnambremohamine26@gmail.com</li>
-            </ul>
-        </section>
+        <div class="skill-card" data-level="80">
+          <div class="skill-header">
+            <div class="skill-icon">📱</div>
+            <div>
+              <div class="skill-name">Flutter / Dart</div>
+              <div class="skill-level">Intermédiaire avancé</div>
+            </div>
+          </div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
+          <div class="skill-desc">Applications mobiles modernes et performantes.</div>
+        </div>
 
-        <section>
-            <h6>Copyright</h6>
-            <p class="lien">© 2025 GNAMBRE. Tous droits réservés</p>
-        </section>
-    </footer>
+        <div class="skill-card" data-level="78">
+          <div class="skill-header">
+            <div class="skill-icon">🐍</div>
+            <div>
+              <div class="skill-name">Python / FastAPI</div>
+              <div class="skill-level">Intermédiaire</div>
+            </div>
+          </div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
+          <div class="skill-desc">Backend et API rapides, sécurisées, déployables.</div>
+        </div>
 
+        <div class="skill-card" data-level="65">
+          <div class="skill-header">
+            <div class="skill-icon">🐳</div>
+            <div>
+              <div class="skill-name">Docker</div>
+              <div class="skill-level">En apprentissage</div>
+            </div>
+          </div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
+          <div class="skill-desc">Conteneurisation d'applications pour un déploiement cohérent.</div>
+        </div>
+
+        <div class="skill-card" data-level="82">
+          <div class="skill-header">
+            <div class="skill-icon">🗄️</div>
+            <div>
+              <div class="skill-name">SQL / SQLite</div>
+              <div class="skill-level">Intermédiaire avancé</div>
+            </div>
+          </div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
+          <div class="skill-desc">Conception de bases de données, requêtes complexes, schémas relationnels.</div>
+        </div>
+
+        <div class="skill-card" data-level="88">
+          <div class="skill-header">
+            <div class="skill-icon">🔧</div>
+            <div>
+              <div class="skill-name">Git / GitHub</div>
+              <div class="skill-level">Intermédiaire avancé</div>
+            </div>
+          </div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
+          <div class="skill-desc">Versioning, dépôts, historique clair des travaux.</div>
+        </div>
+
+        <div class="skill-card" data-level="70">
+          <div class="skill-header">
+            <div class="skill-icon">🤖</div>
+            <div>
+              <div class="skill-name">IA & Outils</div>
+              <div class="skill-level">Intermédiaire</div>
+            </div>
+          </div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill"></div></div>
+          <div class="skill-desc">Prototypage rapide de MVP, recherche et optimisation du workflow.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section id="projets">
+    <div class="section-inner">
+      <p class="section-eyebrow">Ce que j'ai construit</p>
+      <h2 class="section-title">Mes <span class="dim">projets</span></h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-thumb">🌐</div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <div class="project-title">Mon Portfolio</div>
+            <div class="project-desc">
+              Site statique présentant ma biographie, mon parcours, mes compétences techniques 
+              ainsi que les projets que j'ai réalisés. Hébergé sur GitHub Pages.
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Mohamine226" class="project-link" target="_blank">→ GitHub</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-thumb">🏍️</div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Tkinter</span>
+              <span class="project-tag">SQLite</span>
+            </div>
+            <div class="project-title">MotoStock</div>
+            <div class="project-desc">
+              Application desktop de gestion d'inventaire de motos. Projet académique IFOAD 2026 
+              avec interface graphique Tkinter et base de données SQLite.
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Mohamine226" class="project-link" target="_blank">→ GitHub</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="project-card">
+          <div class="project-thumb">🚦</div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="project-tag">Mobilité</span>
+              <span class="project-tag">Concept</span>
+              <span class="project-tag">Ouagadougou</span>
+            </div>
+            <div class="project-title">OuagaSôré</div>
+            <div class="project-desc">
+              Projet créatif visant à résoudre les problèmes de circulation à Ouagadougou. 
+              Solution de mobilité urbaine adaptée au contexte burkinabè.
+            </div>
+            <div class="project-links">
+              <a href="#contact" class="project-link">→ En savoir plus</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-eyebrow">Travaillons ensemble</p>
+      <h2 class="section-title">Me <span class="dim">contacter</span></h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Discutons de votre projet</h3>
+          <p>
+            Que vous ayez un projet web, une application mobile ou une idée à développer, 
+            je suis disponible pour collaborer et proposer des solutions adaptées.
+          </p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-item-icon">📧</div>
+              <a href="mailto:gnambremohamine26@gmail.com">gnambremohamine26@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📞</div>
+              <span>(+226) 71 17 60 61 / 64 14 52 79</span>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📍</div>
+              <span>Ouagadougou, Burkina Faso</span>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">🐙</div>
+              <a href="https://github.com/Mohamine226" target="_blank">github.com/Mohamine226</a>
+            </div>
+          </div>
+          <div class="contact-ext">
+            <a href="https://wa.me/22664145279" target="_blank" class="btn-wa">
+              💬 WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prenom">Prénom</label>
+                <input type="text" id="prenom" placeholder="Marcel" required />
+              </div>
+              <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" placeholder="BALMA" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="marcel@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Numéro (optionnel)</label>
+              <input type="tel" id="phone" placeholder="07 00 00 00" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Décrivez votre projet ou votre demande..." required></textarea>
+            </div>
+            <label class="form-check">
+              <input type="checkbox" id="cgv" required />
+              J'accepte que mes données soient utilisées pour vous recontacter.
+            </label>
+            <button type="submit" class="btn-primary" style="width:100%; text-align:center; border:none; cursor:pointer;">
+              Envoyer le message →
+            </button>
+            <div id="form-result"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">MG<span>.</span></div>
+    <p class="footer-copy">© 2025 GNAMBRE Mohamine. Tous droits réservés.</p>
+    <div class="footer-links">
+      <a href="https://github.com/Mohamine226" target="_blank">GitHub</a>
+      <a href="https://www.facebook.com/gnambre.mohamine" target="_blank">Facebook</a>
+      <a href="#accueil">↑ Haut</a>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+    });
+    function closeMobile() {
+      mobileNav.classList.remove('open');
+    }
+
+    // Skill bars animation (Intersection Observer)
+    const skillCards = document.querySelectorAll('.skill-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+          const level = card.dataset.level;
+          const bar = card.querySelector('.skill-bar-fill');
+          setTimeout(() => { bar.style.width = level + '%'; }, 100);
+          observer.unobserve(card);
+        }
+      });
+    }, { threshold: 0.3 });
+    skillCards.forEach(card => observer.observe(card));
+
+    // Form
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const prenom = document.getElementById('prenom').value.trim();
+      const nom = document.getElementById('nom').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const cgv = document.getElementById('cgv').checked;
+      const result = document.getElementById('form-result');
+
+      if (!prenom || !nom || !email || !message) {
+        result.innerHTML = '<p style="color:#FF6B6B;margin-top:10px;font-size:0.85rem;">Veuillez remplir tous les champs obligatoires.</p>';
+        return;
+      }
+      if (!cgv) {
+        result.innerHTML = '<p style="color:#FF6B6B;margin-top:10px;font-size:0.85rem;">Vous devez accepter les conditions.</p>';
+        return;
+      }
+      result.innerHTML = '<p style="color:#6C63FF;margin-top:10px;font-size:0.85rem;">✓ Message envoyé ! Je vous répondrai rapidement.</p>';
+      this.reset();
+    });
+
+    // Active nav on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+      });
+    });
+  </script>
 </body>
 </html>
