@@ -50,8 +50,20 @@ nav {
   color: var(--text);
   text-decoration: none;
   letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .nav-logo span { color: var(--accent); }
+.nav-logo-avatar {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1.5px solid var(--accent);
+  display: block;
+}
+.nav-logo-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .nav-links {
   display: flex;
   gap: 32px;
@@ -231,7 +243,9 @@ nav {
   border-color: var(--accent);
   color: var(--accent);
   background: rgba(108,99,255,0.08);
+  transform: translateY(-2px);
 }
+.hero-socials a svg { display: block; }
 
 /* Avatar card */
 .hero-card {
@@ -439,21 +453,38 @@ section { padding: 80px 5%; }
   box-shadow: 0 16px 40px rgba(0,0,0,0.4);
 }
 .project-thumb {
-  height: 160px;
+  height: 190px;
   background: linear-gradient(135deg, var(--bg3), var(--bg2));
-  display: flex; align-items: center; justify-content: center;
-  font-size: 3rem;
   border-bottom: 1px solid var(--border);
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
-.project-thumb::after {
-  content: '';
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+.project-thumb:hover img { transform: scale(1.04); }
+
+/* Shared "click to view fullscreen" overlay, used by project & certificate thumbnails */
+.thumb-overlay {
   position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 40px;
-  background: linear-gradient(transparent, var(--bg));
+  inset: 0;
+  background: rgba(10,10,15,0.55);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+  gap: 6px;
+  pointer-events: none;
 }
+.project-thumb:hover .thumb-overlay,
+.cert-preview:hover .thumb-overlay { opacity: 1; }
 .project-body { padding: 20px; }
 .project-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
 .project-tag {
@@ -512,20 +543,6 @@ section { padding: 80px 5%; }
   transition: transform 0.3s;
 }
 .cert-preview:hover img { transform: scale(1.03); }
-.cert-preview-icon { font-size: 3rem; }
-.cert-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(108,99,255,0.15);
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: white;
-  gap: 6px;
-}
-.cert-preview:hover .cert-overlay { opacity: 1; }
 .cert-body { padding: 18px; }
 .cert-badge {
   font-size: 0.7rem;
@@ -575,6 +592,42 @@ section { padding: 80px 5%; }
   border: none;
   line-height: 1;
 }
+
+/* ===== CV ===== */
+#cv { background: var(--bg2); }
+.cv-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+.cv-preview {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1406 / 1988;
+  margin: 0 auto 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg3);
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+}
+.cv-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.35s ease;
+}
+.cv-preview:hover img { transform: scale(1.03); }
+.cv-preview:hover .thumb-overlay { opacity: 1; }
+.cv-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
 /* ===== CONTACT ===== */
 #contact { background: var(--bg2); }
@@ -694,6 +747,7 @@ footer {
   section { padding: 60px 5%; }
   footer { flex-direction: column; text-align: center; }
   .footer-links { justify-content: center; }
+  .cv-card { padding: 18px; }
 }
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }

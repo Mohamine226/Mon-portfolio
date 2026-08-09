@@ -4,8 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="google-site-verification" content="RO65E0zmF3ZNQJnrXYywlFNeCiVbBOtjvnzkJwG7VOE" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Mohamine GNAMBRE, étudiant en ingénierie logicielle, passionné par la conception de logiciels, le développement web, mobile et l'intelligence artificielle.">
-  <title>Mohamine GNAMBRE | Étudiant en ingénierie logicielle</title>
+  <meta name="description" content="Mohamine GNAMBRE, étudiant en informatique appliquée (L1 validée), développeur web & mobile passionné par le développement web, mobile et l'intelligence artificielle." />
+  <meta name="theme-color" content="#0A0A0F" />
+  <title>Mohamine GNAMBRE | Développeur Web & Mobile </title>
+
+  <!-- Favicons — remplacez image/photo.png par votre vraie photo et relancez la génération pour un onglet 100% personnalisé -->
+  <link rel="icon" type="image/x-icon" href="image/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="image/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="image/favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="image/favicon-192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="image/apple-touch-icon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mohamine GNAMBRE | Développeur Web & Mobile" />
+  <meta property="og:description" content="Étudiant en Informatique Appliquée (L1 validée) — Portfolio, projets et compétences." />
+  <meta property="og:image" content="image/photo.png" />
+  <meta property="og:type" content="website" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -15,13 +30,17 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#accueil" class="nav-logo">MG<span>.</span></a>
+    <a href="#accueil" class="nav-logo">
+      <span class="nav-logo-avatar"><img src="image/photo.png" alt="Mohamine GNAMBRE" /></span>
+      MG<span>.</span>
+    </a>
     <ul class="nav-links">
       <li><a href="#accueil">Accueil</a></li>
       <li><a href="#apropos">À propos</a></li>
       <li><a href="#competences">Compétences</a></li>
       <li><a href="#projets">Projets</a></li>
       <li><a href="#certificats">Certificats</a></li>
+      <li><a href="#cv">CV</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -35,6 +54,7 @@
     <a href="#competences" onclick="closeMobile()">Compétences</a>
     <a href="#projets"     onclick="closeMobile()">Projets</a>
     <a href="#certificats" onclick="closeMobile()">Certificats</a>
+    <a href="#cv"          onclick="closeMobile()">CV</a>
     <a href="#contact"     onclick="closeMobile()">Contact</a>
   </div>
 
@@ -57,12 +77,21 @@
         <div class="hero-actions">
           <a href="#projets" class="btn-primary">Voir mes projets</a>
           <a href="#contact" class="btn-ghost">Me contacter</a>
+          <a href="cv/cv.pdf" class="btn-ghost" download>⬇ Télécharger le CV</a>
         </div>
         <div class="hero-socials">
-          <a href="https://github.com/Mohamine226"            target="_blank" title="GitHub">GH</a>
-          <a href="https://www.facebook.com/gnambre.mohamine" target="_blank" title="Facebook">FB</a>
-          <a href="https://x.com/Mohamine994"                 target="_blank" title="X">X</a>
-          <a href="https://wa.me/22664145279"                  target="_blank" title="WhatsApp">WA</a>
+          <a href="https://github.com/Mohamine226" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.57.1.79-.25.79-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.08.78 2.17 0 1.57-.01 2.83-.01 3.22 0 .3.21.66.8.55A10.51 10.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/gnambre.mohamine" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/></svg>
+          </a>
+          <a href="https://x.com/Mohamine994" target="_blank" rel="noopener" title="X (Twitter)" aria-label="X">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M18.24 2H21.5l-7.31 8.35L22.8 22h-6.77l-5.3-6.93L4.6 22H1.33l7.82-8.94L1 2h6.94l4.79 6.33L18.24 2zm-1.19 18h1.8L7.02 3.9H5.1l11.95 16.1z"/></svg>
+          </a>
+          <a href="https://wa.me/22664145279" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12.04 0C5.5 0 .2 5.3.2 11.84c0 2.09.55 4.13 1.6 5.93L.1 24l6.4-1.67a11.8 11.8 0 0 0 5.53 1.41h.01c6.55 0 11.85-5.3 11.85-11.84C23.9 5.3 18.6 0 12.04 0zm0 21.66h-.01a9.8 9.8 0 0 1-5-1.37l-.36-.21-3.8.99 1.01-3.7-.24-.38a9.75 9.75 0 0 1-1.5-5.15c0-5.4 4.4-9.8 9.9-9.8 2.64 0 5.13 1.03 6.99 2.9a9.75 9.75 0 0 1 2.9 6.96c0 5.4-4.4 9.76-9.9 9.76zm5.42-7.33c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.46-.88-.79-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.13-.13.3-.34.44-.5.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.59-.9-2.18-.24-.57-.48-.5-.66-.5-.17 0-.37-.02-.57-.02-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.87 1.21 3.07c.15.2 2.09 3.2 5.08 4.48.71.31 1.26.49 1.7.63.71.23 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.24-.7.24-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/></svg>
+          </a>
         </div>
       </div>
 
@@ -71,11 +100,10 @@
           <div class="avatar-inner">
             <!--
               PHOTO DE PROFIL :
-              Quand tu mets ta photo dans image/, remplace la ligne suivante par :
-              <img src="image/photo.jpg" alt="Mohamine GNAMBRE" />
+              Remplacez image/photo.png par votre vraie photo (même nom de fichier),
+              elle mettra aussi à jour automatiquement le logo dans l'onglet du navigateur.
             -->
-              <img src="image/photo.png" alt="Mohamine GNAMBRE" />
-            <span class="avatar-initials">MG</span>
+            <img src="image/photo.png" alt="Mohamine GNAMBRE" />
           </div>
         </div>
         <div class="card-name">Mohamine GNAMBRE</div>
@@ -83,7 +111,7 @@
         <div class="card-stats">
           <div class="stat"><div class="stat-num">4+</div><div class="stat-label">Projets réalisés</div></div>
           <div class="stat"><div class="stat-num">8</div><div class="stat-label">Technologies</div></div>
-          <div class="stat"><div class="stat-num">L1</div><div class="stat-label">Informatique appliquée</div></div>
+          <div class="stat"><div class="stat-num">L1 ✓</div><div class="stat-label">Validée · L2 en attente</div></div>
           <div class="stat"><div class="stat-num">BF</div><div class="stat-label">Ouagadougou</div></div>
         </div>
       </div>
@@ -107,7 +135,7 @@
             <div class="timeline-dot">🎓</div>
             <div class="timeline-content">
               <h4>IFOAD — Licence Informatique Appliquée</h4>
-              <p>Université Joseph Ki-Zerbo · En cours</p>
+              <p>Université Joseph Ki-Zerbo · <strong>L1 validée</strong>, en attente d'inscription en L2</p>
             </div>
           </div>
           <div class="timeline-item">
@@ -192,26 +220,38 @@
       <p class="section-eyebrow">Ce que j'ai construit</p>
       <h2 class="section-title">Mes <span class="dim">projets</span></h2>
       <div class="projects-grid">
+
         <div class="project-card">
-          <div class="project-thumb">🌐</div>
+          <div class="project-thumb" onclick="openLightbox('image/portfolio-preview.png')">
+            <img src="image/portfolio-preview.png" alt="Aperçu du projet Mon Portfolio" loading="lazy" />
+            <div class="thumb-overlay">🔍 Voir en plein écran</div>
+          </div>
           <div class="project-body">
             <div class="project-tags"><span class="project-tag">HTML</span><span class="project-tag">CSS</span><span class="project-tag">JavaScript</span></div>
             <div class="project-title">Mon Portfolio</div>
             <div class="project-desc">Site statique présentant ma biographie, mon parcours, mes compétences techniques ainsi que les projets que j'ai réalisés. Hébergé sur GitHub Pages.</div>
-            <div class="project-links"><a href="https://github.com/Mohamine226" class="project-link" target="_blank">→ GitHub</a></div>
+            <div class="project-links"><a href="https://github.com/Mohamine226" class="project-link" target="_blank" rel="noopener">→ GitHub</a></div>
           </div>
         </div>
+
         <div class="project-card">
-          <div class="project-thumb">🏍️</div>
+          <div class="project-thumb" onclick="openLightbox('image/motostock.png')">
+            <img src="image/motostock.png" alt="Aperçu du projet MotoStock" loading="lazy" />
+            <div class="thumb-overlay">🔍 Voir en plein écran</div>
+          </div>
           <div class="project-body">
             <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Tkinter</span><span class="project-tag">SQLite</span></div>
             <div class="project-title">MotoStock</div>
             <div class="project-desc">Application desktop de gestion d'inventaire de motos. Projet académique IFOAD 2026 avec interface graphique Tkinter et base de données SQLite.</div>
-            <div class="project-links"><a href="https://github.com/Mohamine226" class="project-link" target="_blank">→ GitHub</a></div>
+            <div class="project-links"><a href="https://github.com/Mohamine226/MotoStacks.git" class="project-link" target="_blank" rel="noopener">→ GitHub</a></div>
           </div>
         </div>
+
         <div class="project-card">
-          <div class="project-thumb">🚦</div>
+          <div class="project-thumb" onclick="openLightbox('image/ouagasore.png')">
+            <img src="image/ouagasore.png" alt="Aperçu du projet OuagaSôré" loading="lazy" />
+            <div class="thumb-overlay">🔍 Voir en plein écran</div>
+          </div>
           <div class="project-body">
             <div class="project-tags"><span class="project-tag">Mobilité</span><span class="project-tag">Concept</span><span class="project-tag">Ouagadougou</span></div>
             <div class="project-title">OuagaSôré</div>
@@ -219,6 +259,20 @@
             <div class="project-links"><a href="#contact" class="project-link">→ En savoir plus</a></div>
           </div>
         </div>
+
+        <div class="project-card">
+          <div class="project-thumb" onclick="openLightbox('image/Credit IA.jpg')">
+            <img src="image/Credit IA.jpg" alt="Aperçu du projet credit-approval-prediction" loading="lazy" />
+            <div class="thumb-overlay">🔍 Voir en plein écran</div>
+          </div>
+          <div class="project-body">
+            <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Machine Learning</span><span class="project-tag">Data</span></div>
+            <div class="project-title">credit-approval-prediction</div>
+            <div class="project-desc">Application Python qui prédit si une demande de carte de crédit sera acceptée ou refusée, à partir de données démographiques et financières réelles de clients bancaires.</div>
+            <div class="project-links"><a href="https://github.com/Mohamine226/credit-approval-prediction.git" class="project-link" target="_blank" rel="noopener">→ GitHub</a></div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -231,8 +285,8 @@
       <div class="certs-grid">
         <div class="cert-card">
           <div class="cert-preview" onclick="openLightbox('certificats/GNAMBRE Mohamine _Certificat.png')">
-            <div class="cert-preview-icon">🏆</div>
-            <div class="cert-overlay">🔍 Voir le certificat</div>
+            <img src="certificats/GNAMBRE Mohamine _Certificat.png" alt="Certificat — Meilleur Incubateur, INCUBUO" loading="lazy" />
+            <div class="thumb-overlay">🔍 Voir le certificat</div>
           </div>
           <div class="cert-body">
             <span class="cert-badge">CERTIFICAT</span>
@@ -242,15 +296,15 @@
           </div>
         </div>
         <div class="cert-card">
-          <div class="cert-preview" onclick="openLightbox('certificats/GNAMBRE Mohamine_Certificat.png')">
-            <div class="cert-preview-icon">📜</div>
-            <div class="cert-overlay">🔍 Voir l'attestation</div>
+          <div class="cert-preview" onclick="openLightbox('certificats/GNAMBRE-Mohamine-Attestation.png')">
+            <img src="certificats/GNAMBRE-Mohamine-Attestation.png" alt="Attestation de participation, INCUBUO" loading="lazy" />
+            <div class="thumb-overlay">🔍 Voir l'attestation</div>
           </div>
           <div class="cert-body">
             <span class="cert-badge">ATTESTATION</span>
             <div class="cert-title">Attestation de participation — INCUBUO</div>
             <div class="cert-org">Université Joseph Ki-Zerbo · 5ᵉ édition</div>
-            <a class="cert-link" onclick="openLightbox('certificats/GNAMBRE Mohamine_Certificat.png')">→ Voir en plein écran</a>
+            <a class="cert-link" onclick="openLightbox('certificats/GNAMBRE-Mohamine-Attestation.png')">→ Voir en plein écran</a>
           </div>
         </div>
       </div>
@@ -260,8 +314,26 @@
   <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox">
     <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-    <img id="lightboxImg" src="" alt="Certificat" />
+    <img id="lightboxImg" src="" alt="Aperçu en plein écran" />
   </div>
+
+  <!-- CV -->
+  <section id="cv">
+    <div class="section-inner">
+      <p class="section-eyebrow">Mon parcours en un coup d'œil</p>
+      <h2 class="section-title">Mon <span class="dim">CV</span></h2>
+      <div class="cv-card">
+        <div class="cv-preview" onclick="openLightbox('cv/cv.png')">
+          <img src="cv/cv.png" alt="Aperçu du CV de Mohamine GNAMBRE" loading="lazy" />
+          <div class="thumb-overlay">🔍 Voir en plein écran</div>
+        </div>
+        <div class="cv-actions">
+          <a href="cv/cv.pdf" target="_blank" rel="noopener" class="btn-primary">🔍 Ouvrir le PDF en plein écran</a>
+          <a href="cv/cv.pdf" download class="btn-ghost">⬇ Télécharger le CV (PDF)</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- CONTACT -->
   <section id="contact">
@@ -276,25 +348,11 @@
             <div class="contact-item"><div class="contact-item-icon">📧</div><a href="mailto:gnambremohamine26@gmail.com">gnambremohamine26@gmail.com</a></div>
             <div class="contact-item"><div class="contact-item-icon">📞</div><span>(+226) 71 17 60 61 / 64 14 52 79</span></div>
             <div class="contact-item"><div class="contact-item-icon">📍</div><span>Ouagadougou, Burkina Faso</span></div>
-            <div class="contact-item"><div class="contact-item-icon">🐙</div><a href="https://github.com/Mohamine226" target="_blank">github.com/Mohamine226</a></div>
+            <div class="contact-item"><div class="contact-item-icon">🐙</div><a href="https://github.com/Mohamine226" target="_blank" rel="noopener">github.com/Mohamine226</a></div>
           </div>
           <div class="contact-ext">
-            <a href="https://wa.me/22664145279" target="_blank" class="btn-wa">💬 WhatsApp</a>
+            <a href="https://wa.me/22664145279" target="_blank" rel="noopener" class="btn-wa">💬 WhatsApp</a>
           </div>
-        </div>
-        <div class="contact-form">
-          <form id="contactForm">
-            <div class="form-row">
-              <div class="form-group"><label for="prenom">Prénom</label><input type="text" id="prenom" placeholder="Marcel" required /></div>
-              <div class="form-group"><label for="nom">Nom</label><input type="text" id="nom" placeholder="BALMA" required /></div>
-            </div>
-            <div class="form-group"><label for="email">Email</label><input type="email" id="email" placeholder="marcel@example.com" required /></div>
-            <div class="form-group"><label for="phone">Numéro (optionnel)</label><input type="tel" id="phone" placeholder="07 00 00 00" /></div>
-            <div class="form-group"><label for="message">Message</label><textarea id="message" placeholder="Décrivez votre projet ou votre demande..." required></textarea></div>
-            <label class="form-check"><input type="checkbox" id="cgv" required /> J'accepte que mes données soient utilisées pour vous recontacter.</label>
-            <button type="submit" class="btn-primary" style="width:100%;text-align:center;">Envoyer le message →</button>
-            <div id="form-result"></div>
-          </form>
         </div>
       </div>
     </div>
@@ -303,10 +361,12 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">MG<span>.</span></div>
-    <p class="footer-copy">© 2025 GNAMBRE Mohamine. Tous droits réservés.</p>
+    <p class="footer-copy">© 2026 GNAMBRE Mohamine. Tous droits réservés.</p>
     <div class="footer-links">
-      <a href="https://github.com/Mohamine226" target="_blank">GitHub</a>
-      <a href="https://www.facebook.com/gnambre.mohamine" target="_blank">Facebook</a>
+      <a href="https://github.com/Mohamine226" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.facebook.com/gnambre.mohamine" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/Mohamine994" target="_blank" rel="noopener">X</a>
+      <a href="cv/CV_Mohamine_GNAMBRE.pdf" download>CV</a>
       <a href="#accueil">↑ Haut</a>
     </div>
   </footer>
