@@ -4,7 +4,7 @@ Site portfolio personnel présentant mon parcours, mes compétences et mes proje
 
 ## 🔗 Lien
 
-👉 [Voir le portfolio en ligne](https://mohamine226.github.io/portfolio)
+👉 [https://mohamine226.github.io/portfolio](https://mohamine226.github.io/portfolio)
 
 ## 📋 Contenu
 
@@ -45,30 +45,6 @@ portfolio/
     └── cv-preview.png         ← image de la 1ère page (aperçu affiché sur le site)
 ```
 
-## ⚠️ À faire avant publication : remplacer les visuels d'exemple
-
-Comme aucune photo, capture d'écran, certificat scanné ni CV définitif n'avait été fourni,
-ce paquet contient des **visuels de remplacement générés automatiquement** (clairement
-annotés « APERÇU ») pour que le site soit déjà complet et fonctionnel. Remplacez-les par vos
-vrais fichiers **en gardant exactement les mêmes noms et emplacements** — rien d'autre à modifier :
-
-| Fichier à remplacer | Par |
-|---|---|
-| `image/photo.png` | Votre vraie photo de profil (carrée, min. 500×500 px) |
-| `image/portfolio-preview.png` | Capture d'écran de votre portfolio |
-| `image/motostock.png` | Capture d'écran de MotoStock |
-| `image/ouagasore.png` | Visuel/maquette d'OuagaSôré |
-| `image/credit-approval.jpg` | Capture d'écran de credit-approval-prediction |
-| `certificats/certificat-incubuo.png` | Scan du certificat INCUBUO |
-| `certificats/attestation-incubuo.png` | Scan de l'attestation INCUBUO |
-| `cv/CV_Mohamine_GNAMBRE.pdf` | Votre CV définitif (le PDF fourni est un point de départ avec vos vraies infos, à compléter) |
-
-> Si vous remplacez le CV, pensez aussi à régénérer `cv/cv-preview.png` (capture de la 1ère
-> page du nouveau PDF) pour que l'aperçu affiché sur le site reste à jour.
-
-Après avoir remplacé `image/photo.png` par une vraie photo carrée, régénérez les favicons
-(16/32/192 px + `apple-touch-icon.png` + `favicon.ico`) avec n'importe quel générateur de
-favicon en ligne, ou redemandez-moi de le faire.
 
 ## 👤 Contact
 
@@ -78,4 +54,4 @@ favicon en ligne, ou redemandez-moi de le faire.
 
 ---
 
-© 2025 GNAMBRE Mohamine. Tous droits réservés.
+© 2026 GNAMBRE Mohamine. Tous droits réservés.
